@@ -17,11 +17,11 @@
 % some stuff for quality tables (english doc: http://osl.ugr.es/CTAN/macros/latex/contrib/booktabs/booktabs.pdf)
 \usepackage{booktabs}
 \usepackage{multirow}   
-\usepackage{tikz}            
+\usepackage{tikz}         
 \usepackage{multicol}
 \usepackage{hhline}
 
-\usetikzlibrary{positioning}
+\usetikzlibrary{positioning,arrows}
 % color definition for code listing
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -99,23 +99,23 @@ Veamos ahora el diagrama de estados del servidor:
 \node[rectangle, draw, right = of priv_chat] (chat_room) {EN SALA DE CHAT};
 
 %% Edges definition
-\path[every node/.style={font=\sffamily\small}]
-    (-0.6,3) edge [->] (node0)
-    (node0) edge [->] node[above] {a} (node1)
-    (node0) edge [->] node[above] {b} (node4)
-    (node1) edge [->] node[above] {b} (node2)
-    (node1) edge [->] node[above, near start] {a} (node5)
-    (node2) edge [->, bend right] node[above] {a} (node3)
-    (node2) edge [->] node[below] {b} (node7)
-    (node3) edge [->, bend right] node[above] {a} (node2)
-    (node3) edge [->] node[below] {b} (node7)
-    (node4) edge [->] node[above, near start] {b} (node2)
-    (node4) edge [->] node[above] {a} (node5)
-    (node5) edge [->, bend right] node[below] {a} (node6)
-    (node5) edge [->] node[above] {b} (node7)
-    (node6) edge [->, bend right] node[below] {a} (node5)
-    (node6) edge [->] node[above] {b} (node7)
-    (node7) edge [->, loop right] node[right] {a,b} (node7)
+\path[every node/.style={font=\sffamily\small}, every edge/.append style={>=latex}]
+    (start) edge [->] node[right] {CONNECT/HELLO} (not_auth)
+    (not_auth) edge [->] node[left=0.5cm] {SIGNUP/OK} (create_usr)
+    (create_usr) edge [->] node[left] {USRNAME/OK} (set_pwd)
+    (set_pwd) edge [->] node[above=0.3cm] {PWD/OK} (connected)
+    (not_auth) edge [->] node[right=0.5cm] {LOGIN/OK} (auth)
+    (auth) edge [->] node[below right, near start] {PWD/OK} (connected)
+    (connected) edge [->] node[left] {-/CONNECTQ} (temp)
+    (connected) edge [->] node[below right, near end] {PRIVCONV/OK} (priv_chat)
+    (temp) edge [->] node[below=0.3cm] {OK/USRIP} (priv_chat)
+    (connected) edge [->] node[right] {COD/OK} (chat_room)
+    % (node4) edge [->] node[above] {a} (node5)
+    % (node5) edge [->, bend right] node[below] {a} (node6)
+    % (node5) edge [->] node[above] {b} (node7)
+    % (node6) edge [->, bend right] node[below] {a} (node5)
+    % (node6) edge [->] node[above] {b} (node7)
+    % (node7) edge [->, loop right] node[right] {a,b} (node7)
     ;
 \end{tikzpicture}
 
