@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.16)  27 NOV 2015 20:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.20)  28 NOV 2015 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**tchat_documentation.tex
+**tchat_documentation.tex tchat_documentation.tex
 (./tchat_documentation.tex
 LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+Babel <3.9h> and hyphenation patterns for 5 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
@@ -732,24 +732,36 @@ Overfull \hbox (56.08368pt too wide) in paragraph at lines 120--121
 [][] 
  []
 
-[2] (./tchat_documentation.aux) ) 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 126.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 126.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 126.
+
+Overfull \hbox (98.54533pt too wide) in paragraph at lines 126--169
+ [] 
+ []
+
+[2] [3] (./tchat_documentation.aux) ) 
 Here is how much of TeX's memory you used:
- 11830 strings out of 495028
- 218735 string characters out of 6181497
- 268277 words of memory out of 5000000
- 14807 multiletter control sequences out of 15000+600000
- 6667 words of font info for 24 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 56i,8n,55p,662b,719s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
-10.pfb>
-Output written on tchat_documentation.pdf (2 pages, 52042 bytes).
+ 11847 strings out of 494966
+ 218918 string characters out of 6179558
+ 270417 words of memory out of 5000000
+ 14826 multiletter control sequences out of 15000+600000
+ 9105 words of font info for 32 fonts, out of 8000000 for 9000
+ 40 hyphenation exceptions out of 8191
+ 56i,9n,55p,686b,719s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10
+.pfb>
+Output written on tchat_documentation.pdf (3 pages, 64746 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 37 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

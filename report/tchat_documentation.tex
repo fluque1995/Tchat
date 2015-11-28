@@ -16,8 +16,8 @@
 
 % some stuff for quality tables (english doc: http://osl.ugr.es/CTAN/macros/latex/contrib/booktabs/booktabs.pdf)
 \usepackage{booktabs}
-\usepackage{multirow}   
-\usepackage{tikz}         
+\usepackage{multirow}
+\usepackage{tikz}
 \usepackage{multicol}
 \usepackage{hhline}
 
@@ -77,7 +77,7 @@
 \section{Descripción de la aplicación}
 En esta práctica se va a desarrollar e implementar un protocolo de aplicación. En nuestro caso, vamos a desarrollar un pequeño servicio de mensajería instantánea para la terminal de linux, Tchat, que tendrá dos funcionalidades básicas. Por un lado, permitirá conectarse con otros usuarios directamente, para tener una conversación entre dos personas. Por otro, permitirá crear salas de chat en las que pueden entrar varios usuarios e interactuar entre sí. Además, tendremos una pantalla principal en la que tendremos los usuarios que están conectados en ese momento, así como las salas de chat global abiertas.\\
 
-Para realizar esta conexión, tendremos un servidor que controlará los usuarios que hay conectados a la red (usando un servicio de directorio), y que permitirá que unos usuarios se conecten a otros. Además, será el encargado de gestionar el funcionamiento de las salas de chat, recibiendo los mensajes y enviándoselos a todos los 
+Para realizar esta conexión, tendremos un servidor que controlará los usuarios que hay conectados a la red (usando un servicio de directorio), y que permitirá que unos usuarios se conecten a otros. Además, será el encargado de gestionar el funcionamiento de las salas de chat, recibiendo los mensajes y enviándoselos a todos los
 usuarios conectados a dicha sala de chat.\\
 
 La conexión entre dos usuarios, en cambio, será individual, es decir, el servidor enviará a ambos la dirección del otro, y se establecerá una conexión entre ellos, sin que los mensajes tengan que pasar por el servidor.
@@ -118,6 +118,55 @@ Veamos ahora el diagrama de estados del servidor:
     % (node7) edge [->, loop right] node[right] {a,b} (node7)
     ;
 \end{tikzpicture}
+
+
+\section{Mensajes que intervienen}
+
+\begin{center}
+\begin{tabular}{|c|c|l|}
+
+\hline
+Código & Cuerpo & Descripción \\
+\hline
+\hline
+\multirow{2}{*}{00} & \multirow{2}{*}{CONNECT} &  Mensaje enviado por el cliente\\
+					&						   &  para conectarse al servidor\\
+\hline
+01 & HELLO &  Mensaje \\
+\hline
+\multirow{2}{*}{02} & \multirow{2}{*}{$<$option$>$} &  Mensaje enviado por el cliente para entrar al servidor,\\
+					&							& bien para registrarse o para autenticarse\\
+\hline
+\multirow{2}{*}{03} & \multirow{2}{*}{$<$usrname$>$} &  Mensaje con el nombre de usuario con el que el\\
+					&								 &cliente quiere acceder al servidor\\
+\hline
+04 & $<$psw$>$ &  Mensaje con la contraseña del usuario\\
+\hline
+05 & OK &  Mensaje de confirmación\\
+\hline
+06 & ERR &  Mensaje de error del servidor\\
+\hline
+\multirow{2}{*}{07} & \multirow{2}{*}{CONNECTQ + $<$userIP$>$} &  Mensaje en el que el servidor manda una petición\\
+				   &										  & de chat privado del usuario con IP $<$userIP$>$ \\
+\hline
+\multirow{2}{*}{08} & \multirow{2}{*}{$<$userIP$>$} &  Mensaje en el que el servidor con la\\
+					&								&  dirección IP del usuario a conectar\\
+\hline
+\multirow{2}{*}{09} & \multirow{2}{*}{PRIVCONV + $<$user$>$} & Mensaje enviado por le cliente para establecer\\
+					&										 & un chat privado con el usuario $<$user$>$\\
+\hline
+10 & COD $<$cod$>$ & Mensaje con el código de una sala de chat\\
+\hline
+11 & USRCONNECTED & Mensaje para solicitar la lista de usuarios conectados\\
+\hline
+12 & $<$usrslist$>$ & Mensaje con la lista de los usuarios conectados\\
+\hline
+13 & LOGOUT & Mensaje de desconexión del cliente\\
+\hline
+14 & BYE & Mensaje de confirmación de salida del servidor \\
+\hline
+\end{tabular}
+\end{center}
 
 
 \end{document}
