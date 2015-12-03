@@ -11,39 +11,48 @@ import java.net.InetAddress;
 
 public class ClientSpeaker{
 
-	//close sockets !
 	public static void main(String[] args){
 
-		String host;
-		int port;
+		// Server variables
+		String serverIP = "172.20.92.138";
+		int serverPort = 2048;
+		
+		// Other user variables
 		int userPort = 2049;
 		InetAddress direction;
-		Socket socket = null;
-		Socket socketConnection = null;
-		PrintWriter outPrinter;
-		BufferedReader inReader;
 		String user;
 		String userIP;
 		String message;
-		Console cons;
+
+		// Buffers and socket
+		Socket socketConnection = null;
+		PrintWriter outPrinter;
+		BufferedReader inReader;
+
+		// Console objects
+		Console cons = System.console();
 
 		try {
 			// Conexion with server
-			host = "172.20.56.161";
-			port = 2048;
-			direction = InetAddress.getByName(host);
-			socket = new Socket(direction, port);
-			cons = System.console();
-			// Hand shaking
-			outPrinter = new PrintWriter(socket.getOutputStream(), true);
-			inReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			direction = InetAddress.getByName(serverIP);
+			socketConnection = new Socket(direction, serverPort);
 			
+			// Buffers opening
+			outPrinter = new PrintWriter(socketConnection.getOutputStream(), true);
+			inReader = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));
+			
+			// Ask for connection to other user (MSG: "01")
 			outPrinter.println("01");
+
+			// Read server answer
 			message = inReader.readLine();
 			user = cons.readLine(message);
+
+			// Send to the server the name of the user we want to contact
 			outPrinter.println(user);
+
+			// Read userIP (if user is not connected, reask)
 			userIP = inReader.readLine();
-			
 			while (userIP.equals("-1")){
 				System.out.println("Ese usuario no está conectado, introduzca otro.");	
 				user = cons.readLine(message);
@@ -51,17 +60,21 @@ public class ClientSpeaker{
 				userIP = inReader.readLine();
 			}
 
-			port = 2049;
-			direction = InetAddress.getByName(host);
-			socket = new Socket(direction, port);
-			outPrinter = new PrintWriter(socket.getOutputStream(), true);
+			// Get user InetAddress
+			direction = InetAddress.getByName(serverIP);
+
+			// Connect to other user
+			socketConnection = new Socket(direction, userPort);
+
+			// Open output printer and chat (message quit to close connection)
+			outPrinter = new PrintWriter(socketConnection.getOutputStream(), true);
 			do{
 				message = cons.readLine("Mensaje: ");
 				outPrinter.println(message);
 			} while(!message.equals("quit"));
 		
 		} catch (UnknownHostException e) {
-			System.err.println("Error: Nombre de host no encontrado.");
+			System.err.println("Error: Nombre de serverIP no encontrado.");
 		} catch (IOException e) {
 			System.err.println("Error: Problema con entrada/salida");
 		}

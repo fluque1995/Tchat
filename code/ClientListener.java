@@ -12,53 +12,63 @@ import java.net.InetAddress;
 
 public class ClientListener{
 
-	//close sockets !
 	public static void main(String[] args){
 
-		int port;
+		// Server variables
+		int serverPort = 2048;
+		String serverIP = "172.20.92.138";
+
+		// Other user variables
 		InetAddress direction;
+		String userName;
+		int userPort = 2049;
+		String message;
+
+		// Sockets and buffers
 		Socket socketConnection = null;
 		ServerSocket serverSocket =  null;
 		PrintWriter outPrinter;
 		BufferedReader inReader;
-		String userName;
-		String message;
-		String host;
-		Console cons;
+		
+		// Console object
+		Console cons = System.console();
 		
 		try{
 			// Conexion with server
-			host = "172.20.56.161";
-			port = 2048;
-			direction = InetAddress.getByName(host);
-			socketConnection = new Socket(direction, port);
-			cons = System.console();
+			direction = InetAddress.getByName(serverIP);
+			socketConnection = new Socket(direction, serverPort);
 
-			// Hand shaking
+			// Buffers opening
 			outPrinter = new PrintWriter(socketConnection.getOutputStream(), true);
 			inReader = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));
+			
+			// Register on server db (MSG: "00")
 			outPrinter.println("00");
 			message = inReader.readLine();
-			userName = cons.readLine(message);
-			System.out.println("He leído correctamente el usrname");
-			outPrinter.println(userName);
-			System.out.println("Usrname enviado al servidor");
+			
 			// Choose userName
-
+			userName = cons.readLine(message);
+			outPrinter.println(userName);
 			//Create serverSocket
-			port = 2049;
-			serverSocket = new ServerSocket(port);
-			socketConnection = serverSocket.accept();
+			serverSocket = new ServerSocket(userPort);
+			
+			System.out.println("Registrado correctamente.");
+			System.out.println("Esperando conexión entrante...");
 
+			// Accept connection from other user
+			socketConnection = serverSocket.accept();
+			System.out.println("Recibida conexión de otro usuario");
+			// Open input buffer and receive messages
 			inReader = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));
-			outPrinter = cons.writer();
 			while(!message.equals("quit")){
 				message = inReader.readLine();
 				System.out.println(message);
 			}
+			System.out.println("El usuario se ha ido");
+			socketConnection.close();
 			
 		} catch (UnknownHostException e) {
-			System.err.println("Error: Nombre de host no encontrado.");
+			System.err.println("Error: Nombre de  serverIP no encontrado.");
 		} catch (IOException e) {
 			System.err.println("Error: Problema con entrada/salida");
 		}
