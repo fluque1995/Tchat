@@ -101,21 +101,17 @@ Veamos ahora el diagrama de estados del servidor:
 %% Edges definition
 \path[every node/.style={font=\sffamily\small}, every edge/.append style={>=latex}]
     (start) edge [->] node[right] {CONNECT/HELLO} (not_auth)
+    (not_auth.170) edge [->, min distance=1.5cm] node[above left] {*/ERR} (not_auth.west)
     (not_auth) edge [->] node[left=0.5cm] {SIGNUP/OK} (create_usr)
     (create_usr) edge [->] node[left] {USRNAME/OK} (set_pwd)
     (set_pwd) edge [->] node[above=0.3cm] {PWD/OK} (connected)
     (not_auth) edge [->] node[right=0.5cm] {LOGIN/OK} (auth)
     (auth) edge [->] node[below right, near start] {PWD/OK} (connected)
+    (auth.10) edge [->, min distance=1.5cm] node[above right] {*/ERR} (auth.east)
     (connected) edge [->] node[left] {-/CONNECTQ} (temp)
     (connected) edge [->] node[below right, near end] {PRIVCONV/OK} (priv_chat)
     (temp) edge [->] node[below=0.3cm] {OK/USRIP} (priv_chat)
     (connected) edge [->] node[right] {COD/OK} (chat_room)
-    % (node4) edge [->] node[above] {a} (node5)
-    % (node5) edge [->, bend right] node[below] {a} (node6)
-    % (node5) edge [->] node[above] {b} (node7)
-    % (node6) edge [->, bend right] node[below] {a} (node5)
-    % (node6) edge [->] node[above] {b} (node7)
-    % (node7) edge [->, loop right] node[right] {a,b} (node7)
     ;
 \end{tikzpicture}
 
