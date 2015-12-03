@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.io.Console;
 
-public class ClientLister{
+public class ClientSpeaker{
 
 	//close sockets !
 	public static void main(String[] args){
