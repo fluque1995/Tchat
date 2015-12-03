@@ -6,7 +6,7 @@ public class DirectoryService{
 			users.put(name,IP);
 	}
 
-	public void (String name){
+	public void disconnect(String name){
 			users.remove(name);
 	}
 

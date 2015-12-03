@@ -7,24 +7,45 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+
 public class Client{
 
+	private int port;
+	private InetAddress direction;
+	private DatagramPacket packet;
+	private byte[] IPserver;
+	private DatagramSocket socket;
+	private String IPString;
+	private PrintWriter;
+	private Socket serverSocket = null;
 
-	public static void main(String[] args) {
+	public Client(){
+		this.port = 2048;
+		this.socket = new DatagramSocket();
+		this.IPString = "11.111.1.1.1.tutututu";
+		this.IPserver = new byte[1024];
+		this.IPserver = direction.getBytes(StandardCharsets.UTF_8);
+		this.direction = InetAddress.getByAddress(IPserver);
+		this.socketServicio = new Socket(host, port);
 
-		byte []buferEnvio;
-		byte []buferRecepcion=new byte[256];
-		int bytesLeidos=0;
+	}
+
+	private void connect(){
+		this.outPrinter = new PrintWriter(serverSocket.getOutputStream(), true);
+		outPrinter.println("Hello");
+		packet = new DatagramPacket(bufer, bufer.length, direccion, puerto);
+		socket.send(packet);
+	}
+
+	public static void main(String[] args){
 
 		// Nombre del host donde se ejecuta el servidor:
 		String host="localhost";
-		// Puerto en el que espera el servidor:
-		int port=8989;
 
 		// Socket para la conexión TCP
 		Socket socketServicio=null;
 
-		try {
+		try{
 			// Creamos un socket que se conecte a "host" y "port":
 			//////////////////////////////////////////////////////
 			// socketServicio= ... (Completar)
@@ -69,9 +90,9 @@ public class Client{
 			socketServicio.close();
 
 			// Excepciones:
-		} catch (UnknownHostException e) {
+		} catch (UnknownHostException e){
 			System.err.println("Error: Nombre de host no encontrado.");
-		} catch (IOException e) {
+		} catch (IOException e){
 			System.err.println("Error de entrada/salida al abrir el socket.");
 		}
 	}
