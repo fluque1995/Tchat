@@ -1,31 +1,20 @@
+import java.net.*
+import java.io.*
+
 public class DirectoryService{
 
-	private Map<String, String> users = new HashMap<String, String>();
+	private Map<Socket, PrintWriter> users;
 
-	public void connect(String name, String IP){
-			users.put(name,IP);
+	public DirectoryService(){
+		this.users = new HashMap<Socket, PrintWriter>();
 	}
 
-	public void disconnect(String name){
-			users.remove(name);
+	public void connect(Socket socketConnection, PrintWriter usrPrintWriter){
+			users.put(socketConnection, usrPrintWriter);
 	}
 
-	public Map<String, String> getUssers(){
-			return users.values();
+	public void disconnect(Socket socketConnection){
+			users.remove(socketConnection);
 	}
 
-	/*public BOOOOOM(){
-		System.out.println("Mariadel se caga en Paco corazon corazon");
-		users.clear();
-	}*/
-
-
-	public String isConnected(String name){
-		if(users.containsKey(name)){
-			return users.get(name);
-		}
-		else{
-			return "No conectado";
-		}
-	}
 }
