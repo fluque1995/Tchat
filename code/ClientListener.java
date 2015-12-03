@@ -52,7 +52,7 @@ public class ClientListener{
 
 			inReader = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));
 			outPrinter = cons.writer();
-			while(true){
+			while(!message.equals("quit")){
 				message = inReader.readLine();
 				System.out.println(message);
 			}

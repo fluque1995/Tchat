@@ -44,16 +44,22 @@ public class ClientSpeaker{
 			outPrinter.println(user);
 			userIP = inReader.readLine();
 			
-			if (!userIP.equals("-1")){
-				port = 2049;
-				direction = InetAddress.getByName(host);
-				socket = new Socket(direction, port);
-				outPrinter = new PrintWriter(socket.getOutputStream(), true);
-				while(true){
-					message = cons.readLine("Mensaje: ");
-					outPrinter.println(message);
-				}
+			while (userIP.equals("-1")){
+				System.out.println("Ese usuario no está conectado, introduzca otro.");	
+				user = cons.readLine(message);
+				outPrinter.println(user);
+				userIP = inReader.readLine();
 			}
+
+			port = 2049;
+			direction = InetAddress.getByName(host);
+			socket = new Socket(direction, port);
+			outPrinter = new PrintWriter(socket.getOutputStream(), true);
+			do{
+				message = cons.readLine("Mensaje: ");
+				outPrinter.println(message);
+			} while(!message.equals("quit"));
+		
 		} catch (UnknownHostException e) {
 			System.err.println("Error: Nombre de host no encontrado.");
 		} catch (IOException e) {
