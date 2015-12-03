@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.16)  2 DEC 2015 19:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.16)  3 DEC 2015 12:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -619,6 +619,52 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 1994/05/23 v2.03 Table rule package (DPC)
 )
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count128
+\Gm@cntv=\count129
+\c@Gm@tempcnt=\count130
+\Gm@bindingoffset=\dimen174
+\Gm@wd@mp=\dimen175
+\Gm@odd@mp=\dimen176
+\Gm@even@mp=\dimen177
+\Gm@layoutwidth=\dimen178
+\Gm@layoutheight=\dimen179
+\Gm@layouthoffset=\dimen180
+\Gm@layoutvoffset=\dimen181
+\Gm@dimlist=\toks27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip45
+\f@ncyO@elh=\skip46
+\f@ncyO@erh=\skip47
+\f@ncyO@olh=\skip48
+\f@ncyO@orh=\skip49
+\f@ncyO@elf=\skip50
+\f@ncyO@erf=\skip51
+\f@ncyO@olf=\skip52
+\f@ncyO@orf=\skip53
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count131
+\float@exts=\toks28
+\float@box=\box63
+\@float@everytoks=\toks29
+\@floatcapt=\box64
+)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryposit
 ioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
@@ -629,37 +675,37 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
-\arrowsize=\dimen174
+\arrowsize=\dimen182
 ))
 (./tchat_documentation.aux)
 \openout1 = `tchat_documentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
-LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count128
-\scratchdimen=\dimen175
-\scratchbox=\box63
-\nofMPsegments=\count129
-\nofMParguments=\count130
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count131
-\MPscratchDim=\dimen176
-\MPnumerator=\count132
-\makeMPintoPDFobject=\count133
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count132
+\scratchdimen=\dimen183
+\scratchbox=\box65
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count135
+\MPscratchDim=\dimen184
+\MPnumerator=\count136
+\makeMPintoPDFobject=\count137
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -667,10 +713,6 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -708,57 +750,97 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count134
+\c@lstlisting=\count138
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 75.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 75.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 83.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 83.
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--82
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
 
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (92.11865pt too wide) in paragraph at lines 116--117
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
  []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 122.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 122.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 122.
 
-Overfull \hbox (75.37196pt too wide) in paragraph at lines 122--166
+Overfull \hbox (28.46675pt too wide) in paragraph at lines 130--131
  [] 
  []
 
-[2] [3] (./tchat_documentation.aux) ) 
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 141.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 141.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 141.
+
+Overfull \hbox (12.40407pt too wide) in paragraph at lines 141--185
+ [] 
+ []
+
+[3] (./tchat_documentation.aux) ) 
 Here is how much of TeX's memory you used:
- 11868 strings out of 495028
- 219378 string characters out of 6181497
- 271277 words of memory out of 5000000
- 14839 multiletter control sequences out of 15000+600000
+ 12552 strings out of 495028
+ 229002 string characters out of 6181497
+ 286398 words of memory out of 5000000
+ 15505 multiletter control sequences out of 15000+600000
  9105 words of font info for 32 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,9n,55p,662b,769s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10
-.pfb>
-Output written on tchat_documentation.pdf (3 pages, 65208 bytes).
+ 56i,9n,55p,662b,829s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
+>
+Output written on tchat_documentation.pdf (3 pages, 66755 bytes).
 PDF statistics:
  37 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream

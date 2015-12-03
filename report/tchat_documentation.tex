@@ -20,6 +20,14 @@
 \usepackage{tikz}
 \usepackage{multicol}
 \usepackage{hhline}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{float}
+\renewcommand{\headrulewidth}{2pt}
+
+\geometry{a4paper, margin=1in}
+
+\setlength{\parindent}{0pt}
 
 \usetikzlibrary{positioning,arrows}
 % color definition for code listing
@@ -82,10 +90,13 @@ usuarios conectados a dicha sala de chat.\\
 
 La conexión entre dos usuarios, en cambio, será individual, es decir, el servidor enviará a ambos la dirección del otro, y se establecerá una conexión entre ellos, sin que los mensajes tengan que pasar por el servidor.
 
+\newpage
+
 \section{Diagrama de estados del servidor}
 
-Veamos ahora el diagrama de estados del servidor:
+Veamos ahora el diagrama de estados del servidor:\\
 
+\begin{center}
 \begin{tikzpicture}
 %% Nodes definition
 \node[rectangle, draw] (start) {START};
@@ -104,19 +115,27 @@ Veamos ahora el diagrama de estados del servidor:
     (not_auth.170) edge [->, min distance=1.5cm] node[above left] {*/ERR} (not_auth.west)
     (not_auth) edge [->] node[left=0.5cm] {SIGNUP/OK} (create_usr)
     (create_usr) edge [->] node[left] {USRNAME/OK} (set_pwd)
+    (create_usr.170) edge [->, min distance=1.5cm] node[above] {USREXIST/ERR} (create_usr.west)
     (set_pwd) edge [->] node[above=0.3cm] {PWD/OK} (connected)
+    (set_pwd.west) edge [->, min distance=1cm, bend right, out=250, in=270] node[below right] {NOTALLOWEDPWD/ERR} (set_pwd.190)
     (not_auth) edge [->] node[right=0.5cm] {LOGIN/OK} (auth)
     (auth) edge [->] node[below right, near start] {PWD/OK} (connected)
-    (auth.10) edge [->, min distance=1.5cm] node[above right] {*/ERR} (auth.east)
+    (auth.east) edge [->, min distance=1.5cm] node[above right] {*/ERR} (auth.10)
     (connected) edge [->] node[left] {-/CONNECTQ} (temp)
     (connected) edge [->] node[below right, near end] {PRIVCONV/OK} (priv_chat)
+    (connected.85) edge [->, min distance=1cm] node[above] {PRIVCONV-COD/ERR} (connected.95)
     (temp) edge [->] node[below=0.3cm] {OK/USRIP} (priv_chat)
     (connected) edge [->] node[right] {COD/OK} (chat_room)
     ;
 \end{tikzpicture}
+\end{center}
 
+Para todo estado del diagrama, además de los mensajes que se observan, se tendría también un mensaje de desconexión (LOGOUT/BYE), que conectase cualquier estado con el estado (END). Se especifican aquí estos mensajes para que el diagrama no se sobrecargue.
 
+\newpage
 \section{Mensajes que intervienen}
+
+Vamos a ver ahora los mensajes que vamos a necesitar para el correcto funcionamiento de nuestra aplicación. Se hará una pequeña descripción de los mensajes que aparecen en el diagrama anterior.
 
 \begin{center}
 \begin{tabular}{|c|c|l|}
@@ -136,7 +155,7 @@ Código & Cuerpo & Descripción \\
 \multirow{2}{*}{03} & \multirow{2}{*}{$<$usrname$>$} &  Mensaje con el nombre de usuario con el que el\\
 					&								 &cliente quiere acceder al servidor\\
 \hline
-04 & $<$psw$>$ &  Mensaje con la contraseña del usuario\\
+04 & $<$pwd$>$ &  Mensaje con la contraseña del usuario\\
 \hline
 05 & OK &  Mensaje de confirmación\\
 \hline
@@ -165,5 +184,8 @@ Código & Cuerpo & Descripción \\
 \end{tabular}
 \end{center}
 
+\section{Prototipo de la aplicación}
+
+Se va a desarrollar una pequeña aplicación que ilustre el funcionamiento básico de la aplicación. La aplicacion desarrollada permitirá conectarse con el servidor, consultar los usuarios que hay conectados, y abrir una conversación privada con uno de ellos.
 
 \end{document}
