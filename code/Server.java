@@ -37,7 +37,7 @@ public class Server{
                     String usrname = inReader.readLine();
                     String address_to_send = null;
                     if (users.containsKey(usrname)){
-                        address_to_send = users.get(users).getHostAddress();
+                        address_to_send = users.get(usrname).getHostAddress();
                     } else {
                         address_to_send = "-1";
                     }

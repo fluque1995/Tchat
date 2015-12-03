@@ -14,7 +14,7 @@ public class ClientSpeaker{
 	//close sockets !
 	public static void main(String[] args){
 
-		byte[] host;
+		String host;
 		int port;
 		int userPort = 2049;
 		InetAddress direction;
@@ -29,11 +29,11 @@ public class ClientSpeaker{
 
 		try {
 			// Conexion with server
-			host = "IP";
-			port = 2049;
-			direction = InetAddress.getByAddress(host);
+			host = "172.20.56.161";
+			port = 2048;
+			direction = InetAddress.getByName(host);
 			socket = new Socket(direction, port);
-
+			cons = System.console();
 			// Hand shaking
 			outPrinter = new PrintWriter(socket.getOutputStream(), true);
 			inReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -45,16 +45,19 @@ public class ClientSpeaker{
 			userIP = inReader.readLine();
 			
 			if (!userIP.equals("-1")){
-				direction = InetAddress.getByAddress(host);
+				port = 2049;
+				direction = InetAddress.getByName(host);
 				socket = new Socket(direction, port);
+				outPrinter = new PrintWriter(socket.getOutputStream(), true);
 				while(true){
-					message = c.readLine("Mensaje: ");
+					message = cons.readLine("Mensaje: ");
 					outPrinter.println(message);
 				}
 			}
-		}
-		catch (IOException e) {
-			System.err.println("Error");
+		} catch (UnknownHostException e) {
+			System.err.println("Error: Nombre de host no encontrado.");
+		} catch (IOException e) {
+			System.err.println("Error: Problema con entrada/salida");
 		}
 	}
 }

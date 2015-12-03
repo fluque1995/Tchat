@@ -4,9 +4,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import java.io.Console;
+import java.net.Socket;
+import java.net.ServerSocket;
+import java.net.UnknownHostException;
+import java.net.InetAddress;
 
 public class ClientListener{
 
@@ -14,38 +16,51 @@ public class ClientListener{
 	public static void main(String[] args){
 
 		int port;
-		inetAddress direction;
+		InetAddress direction;
 		Socket socketConnection = null;
 		ServerSocket serverSocket =  null;
 		PrintWriter outPrinter;
 		BufferedReader inReader;
 		String userName;
+		String message;
+		String host;
+		Console cons;
+		
+		try{
+			// Conexion with server
+			host = "172.20.56.161";
+			port = 2048;
+			direction = InetAddress.getByName(host);
+			socketConnection = new Socket(direction, port);
+			cons = System.console();
 
+			// Hand shaking
+			outPrinter = new PrintWriter(socketConnection.getOutputStream(), true);
+			inReader = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));
+			outPrinter.println("00");
+			message = inReader.readLine();
+			userName = cons.readLine(message);
+			System.out.println("He leído correctamente el usrname");
+			outPrinter.println(userName);
+			System.out.println("Usrname enviado al servidor");
+			// Choose userName
 
-		// Conexion with server
-		this.host = "tututututututututu".getBytes(StandardCharsets.UTF_8);
-		this.port = 2048;
-		this.direction = inetAddress.getByAddress(host,port);
-		this.socket = new Socket(direction, port);
+			//Create serverSocket
+			port = 2049;
+			serverSocket = new ServerSocket(port);
+			socketConnection = serverSocket.accept();
 
-		// Hand shaking
-		outPrinter = new PrintWriter(socket.getOutputStream(), true);
-		outPrinter.println("00");
-		inReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-		// Choose userName
-		String userName;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		System.out.println("Introduzca nombre de usuario:");
-		userName = br.readLine();
-
-		outPrinter.println(userName2);
-
-		//Create serverSocket
-		serverSocket = new ServerSocket(ownPort);
-		socketConnection = serverSocket.accept();
-
-
+			inReader = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));
+			outPrinter = cons.writer();
+			while(true){
+				message = inReader.readLine();
+				System.out.println(message);
+			}
+			
+		} catch (UnknownHostException e) {
+			System.err.println("Error: Nombre de host no encontrado.");
+		} catch (IOException e) {
+			System.err.println("Error: Problema con entrada/salida");
+		}
 	}
 }
