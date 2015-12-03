@@ -13,11 +13,8 @@ public class ClientListener{
 	//close sockets !
 	public static void main(String[] args){
 
-		byte[] host;
 		int port;
-		int ownPort;
 		inetAddress direction;
-		Socket socket = null;
 		Socket socketConnection = null;
 		ServerSocket serverSocket =  null;
 		PrintWriter outPrinter;

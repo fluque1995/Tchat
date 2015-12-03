@@ -25,33 +25,30 @@ public class ClientSpeaker{
 		String user;
 		String userIP;
 		String message;
+		Console cons;
 
 		try {
 			// Conexion with server
-			host = "tututututututututu".getBytes();
-			port = 2048;
+			host = "IP";
+			port = 2049;
 			direction = InetAddress.getByAddress(host);
 			socket = new Socket(direction, port);
 
 			// Hand shaking
 			outPrinter = new PrintWriter(socket.getOutputStream(), true);
-			outPrinter.println("01");
 			inReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
-			// Choose user to talk with
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			user = br.readLine();
+			
+			outPrinter.println("01");
+			message = inReader.readLine();
+			user = cons.readLine(message);
 			outPrinter.println(user);
-
-			// Get user IP
 			userIP = inReader.readLine();
-			if(!userIP.equals("-1")){
-				socketConnection = new Socket(userIP, userPort);
-				outPrinter = new PrintWriter(socketConnection.getOutputStream(), true);
-
-				//Sending messages
+			
+			if (!userIP.equals("-1")){
+				direction = InetAddress.getByAddress(host);
+				socket = new Socket(direction, port);
 				while(true){
-					message = br.readLine();
+					message = c.readLine("Mensaje: ");
 					outPrinter.println(message);
 				}
 			}
