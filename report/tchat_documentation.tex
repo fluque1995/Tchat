@@ -124,6 +124,7 @@ Veamos ahora el diagrama de estados del servidor:\\
     (connected) edge [->] node[left] {-/CONNECTQ} (temp)
     (connected) edge [->] node[below right, near end] {PRIVCONV/OK} (priv_chat)
     (connected.85) edge [->, min distance=1cm] node[above] {PRIVCONV-COD/ERR} (connected.95)
+    (connected) edge [->, min distance=1cm, loop right] node[right] {USRCONNECTED/USRSLIST} (connected)
     (temp) edge [->] node[below=0.3cm] {OK/USRIP} (priv_chat)
     (connected) edge [->] node[right] {COD/OK} (chat_room)
     ;
@@ -164,7 +165,7 @@ Código & Cuerpo & Descripción \\
 \multirow{2}{*}{07} & \multirow{2}{*}{CONNECTQ + $<$userIP$>$} &  Mensaje en el que el servidor manda una petición\\
 				   &										  & de chat privado del usuario con IP $<$userIP$>$ \\
 \hline
-\multirow{2}{*}{08} & \multirow{2}{*}{$<$userIP$>$} &  Mensaje en el que el servidor con la\\
+\multirow{2}{*}{08} & \multirow{2}{*}{$<$userIP$>$} &  Mensaje enviado por el servidor con la\\
 					&								&  dirección IP del usuario a conectar\\
 \hline
 \multirow{2}{*}{09} & \multirow{2}{*}{PRIVCONV + $<$user$>$} & Mensaje enviado por le cliente para establecer\\
