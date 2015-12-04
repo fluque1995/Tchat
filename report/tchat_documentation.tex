@@ -189,6 +189,39 @@ Código & Cuerpo & Descripción \\
 
 Se va a desarrollar una pequeña aplicación que ilustre el funcionamiento básico de la aplicación. En particular, ilustra cómo se gestionaría la parte de chats entre dos usuarios. La aplicacion desarrollada contará con un servidor que gestiona las conexiones, y dos tipos de clientes. Uno de ellos será un cliente escuchante, y otro un cliente emisor. El cliente escuchante podrá conectarse al servidor y especificar un nombre de usuario. Entonces, el servidor registrará su IP y el puerto en el que escucha en una base de datos, y le indicará que puede quedarse escuchando a que un cliente emisor solicite la conexión con él. Por el otro lado, el cliente emisor se conectará al servidor y solicitará la conexión a otro usuario utilizando su nombre de usuario. Si dicho usuario se encuentra conectado, el servidor responderá con la IP del escuchante y el puerto en el que se está escuchando. Entonces, el emisor se conectará a dicho usuario y empezará el envío de mensajes.\\
 
-La idea final de la aplicación consistiría en tener en una misma ventana ambos tipos de clientes para poder tener una conversación bidireccional con otro usuario.
+La idea final de la aplicación consistiría en tener en una misma ventana ambos tipos de clientes para poder tener una conversación bidireccional con otro usuario. Veamos ahora el funcionamiento del programa en distintas terminales. Primero, cuando se hace la conexión del servidor:\\
+\begin{center}
+\includegraphics[scale=0.7]{images/Selection_001}
+\end{center}
+
+Ya tendríamos el servidor escuchando. Ahora, vamos a conectar un cliente escuchante al servidor, que lo va a registrar:\\
+\begin{center}
+\includegraphics[scale=0.7]{images/Selection_002}
+\end{center}
+
+Ahora, introducimos el nombre de usuario, se nos registra correctamente, y se nos desconecta del servidor, esperando a recibir una nueva conexión por parte de un cliente emisor:\\
+\begin{center}
+\includegraphics[scale=0.5]{images/Selection_003}
+\end{center}
+
+Se van a tener dos escuchantes registrados, para comprobar que la aplicación funciona correctamente:\\
+\begin{center}
+\includegraphics[scale=0.5]{images/Selection_004}
+\end{center}
+
+Ahora, vamos a conectar dos emisores, uno a cada uno de los receptores que tenemos conectados. Veamos la conexión de uno de ellos:\\
+\begin{center}
+\includegraphics[scale=0.3]{images/Selection_005}
+\end{center}
+
+Al introducir el nombre de usuario al que nos queremos conectar, el servidor nos responderá con la IP y el puerto de éste. Cuando comencemos la conexión, el otro recibirá un mensaje que le avisa de que nos hemos conectado con él:\\
+\begin{center}
+\includegraphics[scale=0.3]{images/Selection_006}
+\end{center}
+
+Una vez en este punto, podremos mandar mensajes que recibirán los clientes escuchantes, como podemos ver en el siguiente ejemplo, en el que tenemos dos escuchantes y dos emisores:
+\begin{center}
+\includegraphics[scale=0.3]{images/Selection_007}
+\end{center}
 
 \end{document}
