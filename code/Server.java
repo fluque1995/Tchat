@@ -12,9 +12,10 @@ public class Server{
         ServerSocket serverSocket = null;
         Socket socketConnection = null;
         int port = 2048;
+        int currUserPort = 2049;
 
         // Collection of connected users
-        HashMap<String, InetAddress> users = new HashMap<String, InetAddress>();
+        HashMap<String, Pair<InetAddress, Integer>> users = new HashMap<String, Pair<InetAddress, Integer>>();
         
         // Open server socket
         try{
@@ -31,9 +32,10 @@ public class Server{
                 socketConnection = serverSocket.accept();
                 System.out.println("Se intentan conectar conmigo");
 
-                ServerThread serverThread = new ServerThread(socketConnection, users);
-            
+                ServerThread serverThread = new ServerThread(socketConnection, users, currUserPort);
                 serverThread.start();
+
+                currUserPort++;
             }catch(IOException e){
                 System.err.println("Se ha producido un error en el servidor");
             }

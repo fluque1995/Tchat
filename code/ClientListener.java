@@ -21,7 +21,7 @@ public class ClientListener{
 		// Other user variables
 		InetAddress direction;
 		String userName;
-		int userPort = 2049;
+		int userPort;
 		String message;
 
 		// Sockets and buffers
@@ -49,8 +49,11 @@ public class ClientListener{
 			// Choose userName
 			userName = cons.readLine(message);
 			outPrinter.println(userName);
+
+			userPort = Integer.parseInt(inReader.readLine());
 			//Create serverSocket
 			serverSocket = new ServerSocket(userPort);
+			socketConnection.close();
 			
 			System.out.println("Registrado correctamente.");
 			System.out.println("Esperando conexión entrante...");
@@ -70,7 +73,7 @@ public class ClientListener{
 		} catch (UnknownHostException e) {
 			System.err.println("Error: Nombre de  serverIP no encontrado.");
 		} catch (IOException e) {
-			System.err.println("Error: Problema con entrada/salida");
+			System.err.println("Error: Problema con entrada/salida en ClientListener");
 		}
 	}
 }

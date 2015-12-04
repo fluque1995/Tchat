@@ -18,7 +18,7 @@ public class ClientSpeaker{
 		int serverPort = 2048;
 		
 		// Other user variables
-		int userPort = 2049;
+		int userPort;
 		InetAddress direction;
 		String user;
 		String userIP;
@@ -60,9 +60,10 @@ public class ClientSpeaker{
 				userIP = inReader.readLine();
 			}
 
+			userPort = Integer.parseInt(inReader.readLine());
 			// Get user InetAddress
 			direction = InetAddress.getByName(serverIP);
-
+			socketConnection.close();
 			// Connect to other user
 			socketConnection = new Socket(direction, userPort);
 
