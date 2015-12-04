@@ -16,7 +16,7 @@ public class ClientListener{
 
 		// Server variables
 		int serverPort = 2048;
-		String serverIP = "172.20.92.138";
+		String serverIP = "172.20.57.75";
 
 		// Other user variables
 		InetAddress direction;

@@ -14,7 +14,7 @@ public class ClientSpeaker{
 	public static void main(String[] args){
 
 		// Server variables
-		String serverIP = "172.20.92.138";
+		String serverIP = "172.20.57.75";
 		int serverPort = 2048;
 		
 		// Other user variables

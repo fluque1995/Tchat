@@ -16,6 +16,7 @@ public class Server{
 
         // Collection of connected users
         HashMap<String, Pair<InetAddress, Integer>> users = new HashMap<String, Pair<InetAddress, Integer>>();
+        System.out.println("Se ha lanzado correctamente el servidor de Tchat, esperando...");
         
         // Open server socket
         try{
