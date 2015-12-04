@@ -186,6 +186,8 @@ Código & Cuerpo & Descripción \\
 
 \section{Prototipo de la aplicación}
 
-Se va a desarrollar una pequeña aplicación que ilustre el funcionamiento básico de la aplicación. La aplicacion desarrollada permitirá conectarse con el servidor, consultar los usuarios que hay conectados, y abrir una conversación privada con uno de ellos.
+Se va a desarrollar una pequeña aplicación que ilustre el funcionamiento básico de la aplicación. En particular, ilustra cómo se gestionaría la parte de chats entre dos usuarios. La aplicacion desarrollada contará con un servidor que gestiona las conexiones, y dos tipos de clientes. Uno de ellos será un cliente escuchante, y otro un cliente emisor. El cliente escuchante podrá conectarse al servidor y especificar un nombre de usuario. Entonces, el servidor registrará su IP y el puerto en el que escucha en una base de datos, y le indicará que puede quedarse escuchando a que un cliente emisor solicite la conexión con él. Por el otro lado, el cliente emisor se conectará al servidor y solicitará la conexión a otro usuario utilizando su nombre de usuario. Si dicho usuario se encuentra conectado, el servidor responderá con la IP del escuchante y el puerto en el que se está escuchando. Entonces, el emisor se conectará a dicho usuario y empezará el envío de mensajes.\\
+
+La idea final de la aplicación consistiría en tener en una misma ventana ambos tipos de clientes para poder tener una conversación bidireccional con otro usuario.
 
 \end{document}
